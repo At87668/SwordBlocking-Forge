@@ -14,7 +14,7 @@ Fabric / Quilt 版本传送门: https://github.com/TeamMidnightDust/SwordBlockin
 
 Forge移植: 
 
-- [Author87668](https://github.com/Author87668)  *`移植真的好难啊啊啊啊啊`*
+- [Author87668](https://github.com/At87668)  *`移植真的好难啊啊啊啊啊`*
 
 Fabric / Quilt 原作者: 
 
