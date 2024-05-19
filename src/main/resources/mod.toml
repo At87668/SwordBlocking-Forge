@@ -1,0 +1,18 @@
+
+modLoader = "forge"
+loaderVersion = "36.2.20"
+license = "MIT"
+icon = "assets/swordblocking/icon.png"
+displayName = "SwordBlocking"
+version = "1.3.1-Forge"
+description = "Allows blocking with swords and axes when a shield is equipped"
+authors = ["Author87668","Motschen","TeamMidnightDust"]
+
+[[dependencies]]
+  modId = "forge"
+  mandatory = true
+  versionRange = "[36.2,99.0)"
+[[dependencies]]
+  modId = "minecraft"
+  mandatory = true
+  versionRange = "[1.16.5,1.99.9)"

@@ -1,0 +1,128 @@
+buildscript {
+    repositories {
+        maven { url "https://files.minecraftforge.net/maven" }
+		maven { url "https://maven.minecraftforge.net/" }
+		maven { url "https://repo.spongepowered.org/maven" }
+		maven { url "https://plugins.gradle.org/m2/"}
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:6.0.25'
+		classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+	id 'net.minecraftforge.gradle' version '6.0.25'
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.spongepowered.mixin'
+
+mixin {
+    add sourceSets.main, 'mixins.swordblocking.refmap.json'
+    config 'mixins.swordblocking.json'
+}
+
+minecraft {
+	mappings channel: 'official', version: '1.16.5'
+}
+shadowJar {
+    archiveBaseName = "${project.archives_base_name}-all"
+}
+
+group 'eu.midnightdust.swordblocking'
+version = "${minecraft_version}-${mod_version}"
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+
+dependencies {
+	annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+	implementation fg.deobf("org.spongepowered:mixin:0.8.5")
+	implementation fg.deobf("org.spongepowered:mixin.target:1.16.5")
+	implementation 'org.spongepowered:mixin.target:1.16.5'
+	minecraft 'net.minecraftforge:forge:1.16.5-36.2.39'
+	implementation 'net.minecraftforge:forge:1.16.5-36.2.39'
+	compileOnly project.dependencies.create("org.spongepowered:mixin:0.8.5")
+    implementation 'org.spongepowered:mixin:0.8.5'
+	implementation fg.deobf("net.minecraftforge:forge:1.16.5-36.2.39")
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+archivesBaseName = project.archives_base_name
+version = project.mod_version
+group = project.maven_group
+
+repositories {
+    maven { url "https://files.minecraftforge.net/maven" }
+	maven { url "https://maven.minecraftforge.net/" }
+	maven { url "https://repo.spongepowered.org/maven" }
+	maven { url "https://plugins.gradle.org/m2/"}
+	mavenCentral()
+}
+
+java {
+    withSourcesJar()
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    options.release = 8
+}
+
+task compileJavaManual(type: JavaCompile) {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+    options.encoding = "UTF-8"
+    dependsOn 'processResources'
+    sourceSets.main.java.srcDirs = ["src/main/java"]
+}
+
+tasks.named('build') {
+    dependsOn 'compileJavaManual'
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.archivesBaseName}"}
+    }
+}
+
+task remapJar(type: Jar) {
+    archiveVersion = "${project.version}-${project.minecraft_version}"
+    archiveBaseName = "${project.archivesBaseName}"
+    dependsOn 'shadowJar'
+    from shadowJar.outputs
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact remapJar
+			artifact sourcesJar
+        }
+    }
+
+    repositories {
+        maven {
+            name = "Forge"
+            url = uri("https://files.minecraftforge.net/maven")
+        }
+    }
+}

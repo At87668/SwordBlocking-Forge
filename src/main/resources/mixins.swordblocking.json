@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "eu.midnightdust.swordblocking.mixin",
+  "compatibilityLevel": "JAVA_1_8",
+  "refmap": "mixins.swordblocking.refmap.json",
+  "client": [
+    "MixinPlayerEntityRenderer",
+    "MixinBipedEntityModel",
+    "MixinInGameHud",
+    "MixinHeldItemRenderer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
