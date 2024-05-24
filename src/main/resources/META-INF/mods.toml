@@ -1,6 +1,6 @@
 
-modLoader = "forge"
-loaderVersion = "36.2.20"
+modLoader = "javafml"
+loaderVersion = "[36.2,99.0)"
 license = "MIT"
 icon = "assets/swordblocking/icon.png"
 displayName = "SwordBlocking"
