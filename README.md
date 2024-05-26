@@ -1,5 +1,7 @@
 # Sword Blocking
 
+[简体中文](./README_zhcn.md) | [English](./README.md)
+
 A Minecraft Forge client mod to restore the sword blocking animation, simply by holding a shield in the off-hand. It works particularly well on PvP servers running version 1.8.8.
 
 The Forge port may not receive further updates in the future. If other developers are interested, they are welcome to take over.

@@ -1,4 +1,6 @@
 # Sword Blocking
+[简体中文](./README_zhcn.md) | [English](./README.md)
+
 一个 Minecraft Forge 客户端模组来恢复剑的格挡动画，你只需在副手准备一个盾牌
 在 1.8.8 的PvP服务器上使用，效果特别好哦
 
