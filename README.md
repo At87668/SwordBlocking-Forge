@@ -1,45 +1,17 @@
-<<<<<<< HEAD
 # Sword Blocking
-一个 Minecraft Forge 客户端模组来恢复剑的格挡动画，你只需在副手准备一个盾牌
-在 1.8.8 的PvP服务器上使用，效果特别好哦
 
+A Minecraft Forge client mod to restore the sword blocking animation, simply by holding a shield in the off-hand. It works particularly well on PvP servers running version 1.8.8.
 
+The Forge port may not receive further updates in the future. If other developers are interested, they are welcome to take over.
 
-`该Forge移植后续可能不会迎来更新,如果其他大佬有想法,欢迎接手(bushi`
+Fabric / Quilt version link: https://github.com/TeamMidnightDust/SwordBlocking/
 
+## Authors
 
+Forge port:
 
-Fabric / Quilt 版本传送门: https://github.com/TeamMidnightDust/SwordBlocking/
+- [Author87668](https://github.com/At87668) *`Porting is really difficult!!!`*
 
-## 作者们
-
-Forge移植: 
-
-- [Author87668](https://github.com/At87668)  *`移植真的好难啊啊啊啊啊`*
-
-Fabric / Quilt 原作者: 
+Fabric / Quilt original author:
 
 - [Motschen](https://github.com/Motschen)
-=======
-# Sword Blocking
-一个 Minecraft Forge 客户端模组来恢复剑的格挡动画，你只需在副手准备一个盾牌
-在 1.8.8 的PvP服务器上使用，效果特别好哦
-
-
-
-`该Forge移植后续可能不会迎来更新,如果其他大佬有想法,欢迎接手(bushi`
-
-
-
-Fabric / Quilt 版本传送门: https://github.com/TeamMidnightDust/SwordBlocking/
-
-## 作者们
-
-Forge移植: 
-
-- [Author87668](https://github.com/At87668)  *`移植真的好难啊啊啊啊啊`*
-
-Fabric / Quilt 原作者: 
-
-- [Motschen](https://github.com/Motschen)
->>>>>>> 6eae3433069d77f470bc4c372285e7f6cfc8120d
